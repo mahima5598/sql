@@ -21,6 +21,15 @@ The `||` values concatenate the columns into strings.
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed.
 All the other rows will remain the same. */
 
+/*Remark by Mahima:
+As the nulls are only in product_size and product_qty_type and these columns with 2 edits fix NULL rows, I am assuming that when we
+say first column and second column they are the product_size and product_qty_type columns. But if you mean product_name and
+product_size as first and second column based on the order in query then this would be the answer to the question(but will not solve our problem):
+
+SELECT
+coalense(product_name,'') || ', ' || coalesce(product_size,'unit')|| ' (' || product_qty_type || ')'
+FROM product
+*/
 SELECT
 product_name || ', ' || coalesce(product_size,'')|| ' (' || coalesce(product_qty_type,'unit') || ')'
 FROM product;
